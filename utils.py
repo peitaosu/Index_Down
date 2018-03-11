@@ -8,10 +8,18 @@ def copy_file(src, dst):
 
 def sha1_file(src):
     sha1 = hashlib.sha1()
-    with open(src, 'rb') as f:
-        while True:
-            data = f.read(65536)
-            if not data:
-                break
-            sha1.update(data)
+    for line in open(src, 'rb'):
+        sha1.update(line)
     return sha1.hexdigest()
+
+def sha256_file(src):
+    sha256 = hashlib.sha256()
+    for line in open(src, 'rb'):
+        sha256.update(line)
+    return sha256.hexdigest()
+
+def md5_file(src):
+    md5 = hashlib.md5()
+    for line in open(src, 'rb'):
+        md5.update(line)
+    return md5.hexdigest()
