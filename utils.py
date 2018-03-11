@@ -6,6 +6,9 @@ def create_symlink(src, dst):
 def copy_file(src, dst):
     shutil.copyfile(src, dst)
 
+def remove_file(src):
+    os.remove(src)
+
 def sha1_file(src):
     sha1 = hashlib.sha1()
     for line in open(src, 'rb'):
@@ -23,3 +26,10 @@ def md5_file(src):
     for line in open(src, 'rb'):
         md5.update(line)
     return md5.hexdigest()
+
+def walk_folder(dir):
+    items = []
+    for root, dirs, files in os.walk(dir):
+        for name in files:
+            items.append(os.path.join(root, name))
+    return items
