@@ -1,10 +1,11 @@
 import os, sys, json
+from utils import *
 
 def download(remote, local):
     pass
 
 def duplicate(local, dup):
-    pass
+    create_symlink(local, dup)
 
 def download_from_index(remote, local, index_path):
     with open(index_path) as index_file:
