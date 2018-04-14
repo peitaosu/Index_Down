@@ -8,8 +8,8 @@ def replace_file_with_symlink(src, dst):
     remove_file(dst)
     create_symlink(src, dst)
 
-def reduce_size(dir):
-    items = walk_folder(dir)
+def reduce_size(dir_path):
+    items = walk_folder(dir_path)
     for item in items:
         if os.path.isfile(item):
             hash = md5_file(item)
@@ -24,7 +24,7 @@ def reduce_size(dir):
     print 'DONE.'
 
 if __name__ == "__main__":
-    dir = '.'
+    dir_path = '.'
     if len(sys.argv) > 1:
-        dir = sys.argv[1]
+        dir_path = sys.argv[1]
     reduce_size(dir)
