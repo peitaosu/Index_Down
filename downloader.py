@@ -1,8 +1,18 @@
 import os, sys, json
+from shutil import copyfile
+import urllib
 from utils import *
 
 def download(remote, local):
-    pass
+    if remote.startswith(r"\\"):
+        # smb
+        copyfile(remote, local)
+    elif remote.startswith("http"):
+        # http, https
+        urllib.urlretrieve (remote, local)
+    else:
+        # unknown
+        copyfile(remote, local)
 
 def duplicate(local, dup):
     create_symlink(local, dup)
