@@ -28,3 +28,18 @@ def download_from_index(remote, local, index_path):
             for dup in index[file_hash][1:]:
                 dup_file = os.path.join(local, dup)
                 duplicate(local_file, dup_file)
+
+if __name__ == "__main__":
+    local_path = "."
+    index_path = "down.index"
+    if len(sys.argv) == 1:
+        print("> python downloader.py <remote_path> [<local_path> [<index_path>]]")
+        print("Please provide remote location.")
+        sys.exit(-1)
+    if len(sys.argv) > 1:
+        remote_path = sys.argv[1]
+    if len(sys.argv) > 2:
+        local_path = sys.argv[2]
+    if len(sys.argv) > 3:
+        index_path = sys.argv[3]
+    download_from_index(remote_path, local_path, index_path)
