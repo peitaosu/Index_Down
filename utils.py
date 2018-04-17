@@ -1,7 +1,17 @@
 import os, shutil, hashlib
 
 def create_symlink(src, dst):
-    os.symlink(src, dst)
+    os_symlink = getattr(os, "symlink", None)
+    if callable(os_symlink):
+        os_symlink(src, dst)
+    else:
+        import ctypes
+        csl = ctypes.windll.kernel32.CreateSymbolicLinkW
+        csl.argtypes = (ctypes.c_wchar_p, ctypes.c_wchar_p, ctypes.c_uint32)
+        csl.restype = ctypes.c_ubyte
+        flags = 1 if os.path.isdir(src) else 0
+        if csl(dst, src, flags) == 0:
+            raise ctypes.WinError()
 
 def copy_file(src, dst):
     shutil.copyfile(src, dst)
