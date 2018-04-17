@@ -27,7 +27,7 @@ def download_from_index(remote, local, index_path):
         if len(index[file_hash]) > 1:
             for dup in index[file_hash][1:]:
                 dup_file = os.path.join(local, dup)
-                duplicate(local_file, dup_file)
+                duplicate(index[file_hash][0], dup_file)
 
 if __name__ == "__main__":
     local_path = "."
