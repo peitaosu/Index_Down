@@ -27,4 +27,4 @@ if __name__ == "__main__":
     dir_path = '.'
     if len(sys.argv) > 1:
         dir_path = sys.argv[1]
-    reduce_size(dir)
+    reduce_size(dir_path)
