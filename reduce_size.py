@@ -24,7 +24,10 @@ def reduce_size(dir_path):
     print 'DONE.'
 
 if __name__ == "__main__":
-    dir_path = '.'
-    if len(sys.argv) > 1:
+    if len(sys.argv) == 1:
+        print("> python reduce_size.py <dir_path>")
+        print("Please provide directory path which you want to reduce the size.")
+        sys.exit(-1)
+    else:
         dir_path = sys.argv[1]
     reduce_size(dir_path)
