@@ -21,7 +21,7 @@ def reduce_size(dir_path):
                     DUP[hash] = [item]
             else:
                 UNI[hash] = item
-    print 'DONE.'
+    print("DONE")
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
