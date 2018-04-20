@@ -6,7 +6,7 @@ DUP = {}
 
 def replace_file_with_symlink(src, dst):
     remove_file(dst)
-    create_symlink(src, dst)
+    create_symlink(os.path.relpath(src, dst)[3:], dst)
 
 def reduce_size(dir_path):
     items = walk_folder(dir_path)
