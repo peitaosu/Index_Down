@@ -33,7 +33,7 @@ if __name__ == "__main__":
     local_path = "."
     index_path = "down.index"
     if len(sys.argv) == 1:
-        print("> python downloader.py <remote_path> [<local_path> [<index_path>]]")
+        print("> python download.py <remote_path> [<local_path> [<index_path>]]")
         print("Please provide remote location.")
         sys.exit(-1)
     if len(sys.argv) > 1:
