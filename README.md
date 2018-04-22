@@ -1,6 +1,8 @@
 File Download/Transfer System based on Index
 ============================================
 
+[![GitHub license](https://img.shields.io/github/license/peitaosu/indexDown.svg)](https://github.com/peitaosu/indexDown/blob/master/LICENSE)
+
 A File download/transfer system prototype, based on index and use hash to reduce duplicate files.
 
 ## Usage
