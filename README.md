@@ -10,4 +10,6 @@ A File download/transfer system prototype, based on index and use hash to reduce
 > python download.py <remote_path> [<local_path> [<index_path>]]
 
 > python reduce_size.py <dir_path>
+
+> python create_index.py <dir_path> [<index_file>]
 ```
