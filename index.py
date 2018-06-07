@@ -115,7 +115,7 @@ def get_options():
     parser.add_option("-r", "--reduce", dest="reduce", action="store_true", default=False,
                       help="reduce size")
     (options, args) = parser.parse_args()
-    if not options.path or not (options.create or options.download or options.reduce):
+    if not (options.path or options.source) or not (options.create or options.download or options.reduce):
         parser.print_help()
         sys.exit(-1)
     return options
