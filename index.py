@@ -7,14 +7,16 @@ class Index():
 
     def __init__(self):
         self.dir_path = None
-        self.index_file = None
+        self.index_file = "index.json"
         self.source = None
-        self.target = None
+        self.target = "."
         self.UNI = {}
         self.DUP = {}
     
     def set_dir_path(self, dir_path):
         self.dir_path = dir_path
+        if self.source == None:
+            self.source = os.path.dirname(self.dir_path)
     
     def get_dir_path(self):
         return self.dir_path
@@ -113,7 +115,7 @@ def get_options():
     parser.add_option("-r", "--reduce", dest="reduce", action="store_true", default=False,
                       help="reduce size")
     (options, args) = parser.parse_args()
-    if not (options.create or options.download or options.reduce):
+    if not options.path or not (options.create or options.download or options.reduce):
         parser.print_help()
         sys.exit(-1)
     return options
