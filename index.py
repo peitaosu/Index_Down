@@ -46,6 +46,8 @@ class Index():
             urllib.urlretrieve (remote, local)
         else:
             # unknown
+            if not os.path.isdir(os.path.dirname(local)):
+                os.makedirs(os.path.dirname(local))
             copyfile(remote, local)
 
     def _duplicate(self, local, dup):
