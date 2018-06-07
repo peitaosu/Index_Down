@@ -7,9 +7,29 @@ A File download/transfer system prototype, based on index and use hash to reduce
 
 ## Usage
 ```
-> python download.py <remote_path> [<local_path> [<index_path>]]
+> python index.py -h
 
-> python reduce_size.py <dir_path>
+Usage: index.py [options]
 
-> python create_index.py <dir_path> [<index_file>]
+Options:
+  -h, --help            show this help message and exit
+  -p PATH, --path=PATH  directory path
+  -i INDEX, --index=INDEX
+                        index file
+  -s SOURCE, --source=SOURCE
+                        source path
+  -t TARGET, --target=TARGET
+                        target path
+  -c, --create          create index
+  -d, --download        download from index
+  -r, --reduce          reduce size
+
+# create index
+> python index.py -p test -i test.index -c
+
+# download from index
+> python index.py -s . -t target -i test.index -d
+
+# reduce size
+> python index.py -p test -r
 ```
